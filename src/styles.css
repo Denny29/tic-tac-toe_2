@@ -2,3 +2,57 @@
   font-family: sans-serif;
   text-align: center;
 }
+body {
+  display: flex;
+  justify-content: center;
+}
+.row {
+  display: flex;
+}
+.tile {
+  width: 200px;
+  height: 200px;
+  background-color: white;
+}
+#top-left {
+  border-style: solid;
+  border-width: 0px 5px 5px 0px;
+  border-color: black;
+}
+#top-mid {
+  border-style: solid;
+  border-width: 0px 5px 5px 0px;
+  border-color: black;
+}
+#top-right {
+  border-style: solid;
+  border-width: 0px 0px 5px 0px;
+  border-color: black;
+}
+#mid-left {
+  border-style: solid;
+  border-width: 0px 5px 5px 0px;
+  border-color: black;
+}
+#mid {
+  border-style: solid;
+  border-width: 0px 5px 5px 0px;
+  border-color: black;
+}
+#mid-right {
+  border-style: solid;
+  border-width: 0px 0px 5px 0px;
+  border-color: black;
+}
+#bottom-left {
+  border-style: solid;
+  border-width: 0px 5px 0px 0px;
+  border-color: black;
+}
+#bottom-mid {
+  border-style: solid;
+  border-width: 0px 5px 0px 0px;
+  border-color: black;
+}
+#bottom-right {
+}
