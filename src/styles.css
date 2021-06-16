@@ -13,6 +13,8 @@ body {
   width: 200px;
   height: 200px;
   background-color: white;
+  font-size: 200px;
+  /* color: skyblue; */
 }
 #top-left {
   border-style: solid;
