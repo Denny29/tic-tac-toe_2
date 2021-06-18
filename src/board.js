@@ -1,28 +1,34 @@
 import React, { useState } from "react";
 import Tile from "./tile.js";
-
+import Restart from "./restart.js"
 let gameBoard = [" ", " ", " ", " ", " ", " ", " ", " ", " "];
 let i = 0;
 export default function board(props) {
   const [symbol, setSymbol] = useState("X");
+  const [gameOver, setGameOver] = useState(false);
   //Main function below
   let tileCLick = function (location) {
     //User can only click blank spaces
-    if (gameBoard[location] === " ") {
-      //Symbol changes between X and O and is appended into tile
-      turnChange(location);
-      //Win conditions below
-      if(horizontalWin(location)){
-        //stuff when win
-        console.log(symbol + ' wins!!')
-      }
-      else if(verticalWin(location)){
-        //more stuff when win
-        console.log(symbol + ' wins!!')
-      }
-      else if(diagonalWin(location)){
-        //even more stuff when win
-        console.log(symbol + ' wins!!')
+    if(gameOver === false){
+      if (gameBoard[location] === " ") {
+        //Symbol changes between X and O and is appended into tile
+        turnChange(location);
+        //Win conditions below
+        if(horizontalWin(location)){
+          //stuff when win
+          setGameOver(true);
+          setTimeout(alertFunc, 50);
+        }
+        else if(verticalWin(location)){
+          //more stuff when win
+          setGameOver(true);
+          setTimeout(alertFunc, 50);
+        }
+        else if(diagonalWin(location)){
+          //even more stuff when win
+          setGameOver(true);
+          setTimeout(alertFunc, 50);
+        }
       }
     }
   };
@@ -37,7 +43,17 @@ export default function board(props) {
     console.log("the symbol is " + symbol);
     gameBoard[par] = symbol;
   };
-
+  let restartFunc = function(){
+    //full restart
+    setSymbol('X')
+    setGameOver(false)
+    gameBoard = [" ", " ", " ", " ", " ", " ", " ", " ", " "];
+    i = 0;
+  }
+  function alertFunc(){
+    //function for setinterval
+    alert(symbol + ' wins!!')
+  }
   let horizontalWin = function(par){
     if(gameBoard[0] === gameBoard[1] && gameBoard[1] === gameBoard[2] && gameBoard[0] !== " "){
        return true
@@ -87,6 +103,7 @@ export default function board(props) {
         <Tile side="bottom-mid" symbol={gameBoard[7]}  handleTileClick={() => tileCLick(7)} />
         <Tile side="bottom-right" symbol={gameBoard[8]} handleTileClick={() => tileCLick(8)} />
       </div>
+      <Restart gameover={gameOver} turn={symbol} handleClick={restartFunc}/>
     </div>
   );
 }
