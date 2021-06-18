@@ -14,7 +14,9 @@ body {
   height: 200px;
   background-color: white;
   font-size: 200px;
-  /* color: skyblue; */
+}
+.win {
+  color: lightcoral;
 }
 #top-left {
   border-style: solid;
