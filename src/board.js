@@ -43,6 +43,12 @@ export default function board(props) {
           setGameOver(true);
           setTimeout(alertFunc, 50);
         }
+        else if(i === 9){
+          //ends game when tiles are full
+          setGameOver(true);
+          setTimeout(alertFuncTie, 50);
+
+        }
       }
     }
   };
@@ -77,6 +83,9 @@ export default function board(props) {
   function alertFunc(){
     //function for setinterval
     alert(symbol + ' wins!!')
+  }
+  function alertFuncTie(){
+    alert('Draw!!')
   }
   let horizontalWin = function(par){
     if(gameBoard[0] === gameBoard[1] && gameBoard[1] === gameBoard[2] && gameBoard[0] !== " "){
